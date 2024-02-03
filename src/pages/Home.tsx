@@ -5,6 +5,7 @@ import PokemonItem from "../components/PokemonItem";
 import Button from "../components/Button";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../constants/baseUrl";
 
 const Home = () => {
   const [initial, setInitial] = useState(1);
@@ -20,7 +21,7 @@ const Home = () => {
       setLoading(true);
       const pokemons: Pokemon[] = [];
       for (let i = initial; i <= limit; i++) {
-        const pokemon = await getOne(`https://pokeapi.co/api/v2/pokemon/${i}`);
+        const pokemon = await getOne(`${BASE_URL}${i}`);
         if (pokemon) pokemons.push(pokemon);
       }
       setPokemonList((prev) => [...prev, ...pokemons]);

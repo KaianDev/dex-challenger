@@ -5,10 +5,8 @@ type InitialState = {
 };
 
 const initialState: InitialState = {
-  theme: "light",
+  theme: localStorage.dexTheme ?? "light",
 };
-
-//linear-gradient(to top, ${color === "" && theme === "dark" ? bgDark : theme === "light" && color === "" ? bgLight : color}
 
 const themeSlice = createSlice({
   name: "theme",
@@ -16,7 +14,7 @@ const themeSlice = createSlice({
   reducers: {
     toggleTheme: (state) => {
       state.theme = state.theme === "light" ? "dark" : "light";
-      localStorage.setItem("dex_theme", state.theme);
+      localStorage.dexTheme = state.theme;
     },
   },
 });
