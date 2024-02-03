@@ -37,7 +37,7 @@ const Home = () => {
 
   const handleSearchButton = () => {
     if (inputSearch.trim() !== "") {
-      navigate(`pokemon/${inputSearch}`);
+      navigate(`pokemon/${inputSearch.toLowerCase()}`);
     }
   };
 
